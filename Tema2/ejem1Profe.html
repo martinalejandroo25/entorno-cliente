@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        alert("hola mundo");
+        document.write("hola mundo");
+        console.log("hola mundo");
+        let nombre = prompt("dime tu nombre");
+        alert("hola " + nombre);
+        console.log("hola " + nombre);
+        document.write("<h1>hola " + nombre + "</h1>");
+        var numero = parseInt(prompt("dime un numero"));
+        let numero2 = parseInt(prompt("dime otro numero"));
+        let suma = numero + numero2;
+        document.write("<h2>la suma de los numeros es: " + suma + "</h2> ");
+        numero = [1, 2, 3, 4, 5];
+        console.log(numero);
+        document.write("<h2>el array es: " + numero[1] + "</h2> ");
+        for (let i = 0; i < numero.length; i++) {
+            document.write(
+                "<h3> el numero en la posicion " + i + " es: " + numero[i] + " </h3>");
+        }
+        document.write("<h1>sin usar un for</h1>");
+        document.write("<h3>el array es" + numero + "</h3>"); 
+    </script>
+</body>
+
+</html>
