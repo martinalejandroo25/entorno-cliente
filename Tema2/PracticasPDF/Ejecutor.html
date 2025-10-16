@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Selector de Scripts JS</title>
+</head>
+<body>
+    <h1>Elige el script JS a probar</h1>
+    <select id="scriptSelector">
+        <option value="">-- Selecciona un script --</option>
+        <option value="02-ejercicio.js">02-ejercicio.js</option>
+        <option value="03-ejercicio.js">03-ejercicio.js</option>
+        <option value="04-ejercicio.js">04-ejercicio.js</option>
+        <option value="05-ejercicio.js">05-ejercicio.js</option>
+        <option value="06-ejercicio.js">06-ejercicio.js</option>
+        <!-- Añade aquí más opciones según tus scripts -->
+    </select>
+    <button id="loadScript">Cargar y ejecutar</button>
+
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('loadScript').addEventListener('click', () => {
+            const scriptName = document.getElementById('scriptSelector').value;
+            if (!scriptName) {
+                alert('Por favor, selecciona un script.');
+                return;
+            }
+
+            // Eliminar cualquier script previamente cargado
+            const oldScript = document.getElementById('dynamicScript');
+            if (oldScript) {
+                oldScript.remove();
+            }
+
+            // Crear un nuevo script y añadirlo al body
+            const script = document.createElement('script');
+            script.id = 'dynamicScript';
+            script.src = scriptName;
+            script.onload = () => {
+                console.log(`${scriptName} cargado y ejecutado.`);
+            };
+            script.onerror = () => {
+                alert(`No se pudo cargar el script ${scriptName}`);
+            };
+            document.body.appendChild(script);
+        });
+    </script>
+</body>
+</html>

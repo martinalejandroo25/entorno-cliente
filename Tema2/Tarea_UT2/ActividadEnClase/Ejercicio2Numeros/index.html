@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio2Numeros</title>
+</head>
+
+<body>
+    <script>
+        function ParImpar(num) {
+            if (num % 2 == 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+        let num = parseInt(prompt("Escribe el numero de numeros que van a salir(Tiene sentido la frase?)"))
+        for (let i = 0; i <= num; i++) {
+            if(ParImpar(i) == false) {
+                document.write(i + ", ")
+            } else {
+                document.write("<span style='color:blue; font-size: 24px'>" + i + "</span>")
+            }
+
+            if (i % 10 == 0) {
+                document.writeln("<br>")
+            }
+        }
+    </script>
+</body>
+
+</html>

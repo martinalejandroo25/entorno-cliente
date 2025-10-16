@@ -1,0 +1,31 @@
+<!-- Hacer una función llamada operaciones que reciba 5 números y muestre por pantalla
+los siguientes resultados:
+a) El mayor de todos los números recibidos
+b) El menor de todos los números recibidos
+c) La media de todos los números recibidos.
+d) Cuántos números múltiplos de 5 hay en los números recibidos.
+Hacer una página en Javascript que nos pida esos 5 números por teclado y llame a la
+función Operaciones para que muestre los resultados por pantalla.
+NOTA: PARA REALIZARLO NO SE PUEDEN UTILIZAR LOS ARRAYS Y SE VALORARÁ LA
+COMPROBACIÓN DE QUE LO QUE SE INTRODUCE ES UN NÚMERO -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Ejercicio1.js"></script>
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        let num1 = parseInt(prompt("Escribe el primer numero"))
+        let num2 = parseInt(prompt("Escribe el segundo numero"))
+        let num3 = parseInt(prompt("Escribe el tercer numero"))
+        let num4 = parseInt(prompt("Escribe el cuarto numero"))
+        let num5 = parseInt(prompt("Escribe el quinto numero"))
+        document.write("<h1>Resultados</h1>")
+        document.write(operaciones(num1, num2, num3, num4, num5))
+    </script>
+</body>
+</html>

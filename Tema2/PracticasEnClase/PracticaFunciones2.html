@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function suma(a, b) {
+            document.write(`<h2>la suma de los numeros es: ${a + b}</h2>` );
+            return (a+b);
+        }
+            a = parseInt(prompt("dime un numero"))
+            b = parseInt(prompt("dime otro numero"))
+        suma(a, b);
+        
+        function hw() {
+            let saludo = "Hello World"
+            return saludo;
+        }
+        document.write(`<h1>${hw()}</h1>`);
+
+        function aMayus(texto) {
+            return texto.toUpperCase();
+        }
+        let texto = prompt("dime un texto");
+        document.write(`<h3>${aMayus(texto)}</h3>`);
+    </script>
+</body>
+</html>

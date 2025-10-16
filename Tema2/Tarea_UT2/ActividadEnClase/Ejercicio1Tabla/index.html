@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad JavaScript</title>
+</head>
+
+<body>
+    <table>
+        <script>
+
+            function colorearPares(num) {
+                if(num % 2 == 0) {
+                    document.write("<mark>", num, "</mark>")
+                } else {
+                    document.write(num)
+                }
+            }
+
+            let filas = parseInt(prompt("Numero de filas para la tabla"))
+            let columnas = parseInt(prompt("Numero de columnas para la tabla"))
+            let conta=0
+
+            for (let i = 0; i <= filas; i++) {
+                document.write("<tr>")
+                for (let j = 0; j < columnas; j++) {
+                    document.write("<td>")
+                    conta++
+                    colorearPares(conta)
+                    document.write("</td>")
+                }
+                document.write("</tr>")
+            }
+        </script>
+    </table>
+</body>
+
+</html>
