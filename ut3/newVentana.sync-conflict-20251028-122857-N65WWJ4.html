@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Ventana</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="Nombre">Nombre</label><input type="text" id="Nombre"><br>
+        <input type="button" value="Abrir Ventana" onclick="AbrirVentana();">
+        <label for="color">Cambiar Color</label>
+        <input type="color" id="color" onclick="cambiarColor()">
+    </form>
+    <script>
+        let ventana = null;
+        function AbrirVentana() {
+            const nombre = document.getElementById("Nombre").value || "Visitante";
+            ventana = window.open("", "Mi Ventana", "width=500,height=500");
+
+            const contenidoVentana = `
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Mi Ventana</title>
+                </head>
+                <body>
+                    <h1>Bienvenido a mi web ${nombre}</h1>
+                    <label for="colorVentana">Cambiar Color</label>
+                    <input type="color" id="colorVentana">
+                    <script>
+                        const selector = document.getElementById('colorVentana');
+                        selector.addEventListener('input', (event) => {
+                            document.body.style.backgroundColor = event.target.value;
+                        });
+                    <\/script>
+                </body>
+                </html>
+            `;
+
+            ventana.document.open();
+            ventana.document.write(contenidoVentana);
+            ventana.document.close();
+
+        }
+        function cambiarColor() {
+            const color = document.getElementById("color").value;
+            document.body.style.backgroundColor = color;
+            if (ventana && !ventana.closed) {
+                ventana.document.body.style.backgroundColor = color;
+                const selectorVentana = ventana.document.getElementById("colorVentana");
+                if (selectorVentana) {
+                    selectorVentana.value = color;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

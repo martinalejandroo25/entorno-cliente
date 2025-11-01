@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Ventana</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="Nombre">Nombre</label><input type="text" id="Nombre"><br>
+        <input type="button" value="Abrir Ventana" onclick="AbrirVentana();">
+        <label for="color">Cambiar Color</label>
+        <input type="color" id="color">
+    </form>
+    <script>
+        let ventana = null;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const selectorPrincipal = document.getElementById("color");
+            selectorPrincipal.addEventListener("input", cambiarColor);
+        });
+
+        function AbrirVentana() {
+            const nombre = document.getElementById("Nombre").value || "Visitante";
+            ventana = window.open("", "Mi Ventana", "width=500,height=500");
+
+            if (!ventana || ventana.closed) {
+                return;
+            }
+
+            const doc = ventana.document;
+            doc.title = "Mi Ventana";
+            doc.body.innerHTML = "";
+
+            const titulo = doc.createElement("h1");
+            titulo.textContent = `Bienvenido a mi web ${nombre}`;
+            doc.body.appendChild(titulo);
+
+            const etiqueta = doc.createElement("label");
+            etiqueta.setAttribute("for", "colorVentana");
+            etiqueta.textContent = "Cambiar Color";
+            doc.body.appendChild(etiqueta);
+
+            const selectorVentana = doc.createElement("input");
+            selectorVentana.type = "color";
+            selectorVentana.id = "colorVentana";
+            doc.body.appendChild(selectorVentana);
+
+            inicializarVentana();
+            const colorActual = document.getElementById("color").value;
+            if (colorActual) {
+                ventana.document.body.style.backgroundColor = colorActual;
+                const selectorVentana = ventana.document.getElementById("colorVentana");
+                if (selectorVentana) {
+                    selectorVentana.value = colorActual;
+                }
+            }
+        }
+        function inicializarVentana() {
+            if (!ventana || ventana.closed) return;
+            const selectorVentana = ventana.document.getElementById("colorVentana");
+            if (selectorVentana) {
+                selectorVentana.addEventListener("input", (event) => {
+                    ventana.document.body.style.backgroundColor = event.target.value;
+                });
+            }
+        }
+        function cambiarColor() {
+            const color = document.getElementById("color").value;
+            document.body.style.backgroundColor = color;
+            if (ventana && !ventana.closed) {
+                ventana.document.body.style.backgroundColor = color;
+                const selectorVentana = ventana.document.getElementById("colorVentana");
+                if (selectorVentana) {
+                    selectorVentana.value = color;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
